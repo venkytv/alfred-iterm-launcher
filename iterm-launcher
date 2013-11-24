@@ -1,0 +1,33 @@
+#!/usr/bin/perl -w
+
+use strict;
+use Config::Tiny;
+
+my ($param, $action) = @ARGV;
+die "usage: $0 <parameter> <action>\n" if not $action;
+
+my $conffile = $ENV{HOME} . '/.iterm-launcher.conf';
+my $config = {};
+if (-f $conffile) {
+    $config = Config::Tiny->read($conffile);
+}
+
+my @comm = ();
+
+if ($config->{$action}->{$param}) {
+    my $comm = $config->{$action}->{$param};
+    $comm =~ s#^~/#$ENV{HOME}/#;
+    @comm = split(' ', $comm);
+} elsif ($action eq 'ssh') {
+    push(@comm, '/usr/bin/ssh');
+    if ($param =~ /\[(.*?)\]:(\d+)/) {
+        push(@comm, ('-p', $2, $1));
+    } else {
+        push(@comm, $param);
+    }
+}
+die "Don't know what to do" if not @comm;
+
+system(@comm) == 0
+    or die "Command returned error: $?";
+exit 0;

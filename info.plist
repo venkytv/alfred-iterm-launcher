@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>com.duh-uh.iterm-launcher</string>
+	<key>connections</key>
+	<dict>
+		<key>5C5B2B8F-8A2D-4570-9240-F11550122D36</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>7718C5F6-2129-478A-AE92-0060DD230A96</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>7718C5F6-2129-478A-AE92-0060DD230A96</key>
+		<array/>
+	</dict>
+	<key>createdby</key>
+	<string>Venky TV</string>
+	<key>description</key>
+	<string>Launch commands in iTerm tabs</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>iTerm Launcher</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>127</integer>
+				<key>keyword</key>
+				<string>ssh</string>
+				<key>runningsubtext</key>
+				<string>Loading known hosts...</string>
+				<key>script</key>
+				<string>perl alfred-known-hosts.pl {query}</string>
+				<key>subtext</key>
+				<string>Launch or switch to SSH tab</string>
+				<key>title</key>
+				<string>iTerm SSH</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>5C5B2B8F-8A2D-4570-9240-F11550122D36</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>122</integer>
+				<key>script</key>
+				<string>osascript iterm-launcher.scpt SSH {query}</string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>7718C5F6-2129-478A-AE92-0060DD230A96</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string>Icon from:
+http://www.iconarchive.com/show/war-on-bad-design-2-icons-by-icondesigner.net/WoBD-Terminal-icon.html</string>
+	<key>uidata</key>
+	<dict>
+		<key>5C5B2B8F-8A2D-4570-9240-F11550122D36</key>
+		<dict>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+		<key>7718C5F6-2129-478A-AE92-0060DD230A96</key>
+		<dict>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+	</dict>
+	<key>webaddress</key>
+	<string></string>
+</dict>
+</plist>
