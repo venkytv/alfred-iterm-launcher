@@ -16,9 +16,7 @@ and so, this is primarily geared towards ssh.  But with a different launch
 script instead of "alfred-known-hosts.pl", the workflow could be set up to run
 arbitrary commands in iTerm tabs.
 
-Download the [latest version here](https://github.com/venkytv/alfred-iterm-launcher/raw/master/iTerm-Launcher.alfredworkflow).
-
-You also need to copy the [iterm-launcher](https://raw.github.com/venkytv/alfred-iterm-launcher/master/iterm-launcher) script to your ~/bin directory.
+Download the [latest version here](https://github.com/venkytv/alfred-iterm-launcher/raw/master/iTerm-Launcher.alfredworkflow).  You also need to copy the [iterm-launcher](https://raw.github.com/venkytv/alfred-iterm-launcher/master/iterm-launcher) script to your ~/bin directory.
 
 If you have cloned this repo and have [Xcode command line tools installed](http://stackoverflow.com/a/9329325), "make install" will do all of this for you.
 
