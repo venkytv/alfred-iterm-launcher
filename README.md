@@ -18,6 +18,10 @@ arbitrary commands in iTerm tabs.
 
 Download the [latest version here](https://github.com/venkytv/alfred-iterm-launcher/raw/master/iTerm-Launcher.alfredworkflow).
 
+You also need to copy the [iterm-launcher](https://raw.github.com/venkytv/alfred-iterm-launcher/master/iterm-launcher) script to your ~/bin directory.
+
+If you have cloned this repo and have [Xcode command line tools installed](http://stackoverflow.com/a/9329325), "make install" will do all of this for you.
+
 Dependencies:
 
 - [Config::Tiny](https://metacpan.org/pod/Config::Tiny)

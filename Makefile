@@ -9,8 +9,12 @@ $(OUTFILE): $(INFILES)
 	$(RM) $(OUTFILE)
 	zip $(OUTFILE) $(INFILES)
 
-install: $(OUTFILE)
+install: $(OUTFILE) $(HOME)/bin/iterm-launcher
 	open $(OUTFILE)
+
+$(HOME)/bin/iterm-launcher: iterm-launcher
+	mkdir -p $(HOME)/bin
+	ln -s $(PWD)/iterm-launcher $(HOME)/bin
 
 clean:
 	$(RM) $(OUTFILE)
