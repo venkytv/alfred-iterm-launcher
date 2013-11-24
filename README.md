@@ -13,7 +13,7 @@ also be used to set up aliases for hostnames.
 
 The list of matches for the workflow is picked from ~/.ssh/known\_hosts file,
 and so, this is primarily geared towards ssh.  But with a different launch
-script instead of "alfred-known-hosts.pl", the workflow could be set up to run
+script instead of "[alfred-known-hosts.pl](https://github.com/venkytv/alfred-iterm-launcher/blob/master/alfred-known-hosts.pl)", the workflow could be set up to run
 arbitrary commands in iTerm tabs.
 
 Download the [latest version here](https://github.com/venkytv/alfred-iterm-launcher/raw/master/iTerm-Launcher.alfredworkflow).  You also need to copy the [iterm-launcher](https://raw.github.com/venkytv/alfred-iterm-launcher/master/iterm-launcher) script to your ~/bin directory.
