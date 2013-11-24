@@ -16,6 +16,8 @@ and so, this is primarily geared towards ssh.  But with a different launch
 script instead of "alfred-known-hosts.pl", the workflow could be set up to run
 arbitrary commands in iTerm tabs.
 
+Download the [latest version here](https://github.com/venkytv/alfred-iterm-launcher/raw/master/iTerm-Launcher.alfredworkflow).
+
 Dependencies:
 
 - [Config::Tiny](https://metacpan.org/pod/Config::Tiny)
