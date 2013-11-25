@@ -42,7 +42,16 @@
 				<key>runningsubtext</key>
 				<string>Loading known hosts...</string>
 				<key>script</key>
-				<string>perl alfred-known-hosts.pl {query}</string>
+				<string>perl alfred-known-hosts.pl {query}
+#
+# You can use a new ssh group with its own profile this way:
+# perl alfred-known-hosts.pl --group=&lt;groupname&gt; {query}
+#
+# This &lt;groupname&gt; parameter will be passed to the "iterm-launcher"
+# along with the Alfred query parameter.
+#
+# Have a look at the sample config file to see how you can configure
+# iterm-launcher to run custom commands for different groups.</string>
 				<key>subtext</key>
 				<string>Launch or switch to SSH tab</string>
 				<key>title</key>
@@ -65,7 +74,18 @@
 				<key>escaping</key>
 				<integer>122</integer>
 				<key>script</key>
-				<string>osascript iterm-launcher.scpt SSH {query}</string>
+				<string>osascript iterm-launcher.scpt SSH {query} Default
+#                              |             |
+#                              |             +---&gt; Connect to terminal window
+#                              |                   which contains this session.
+#                              |                   Optional; if not specified,
+#                              |                   launch new terminal window.
+#                              |
+#                              +-----------------&gt; Profile to use while
+#                                                  creating new session.
+#
+# If creating a new launcher based on this, remember to *not* escape
+# "Spaces" and "Double Quotes" in the "Escaping" section (above).</string>
 				<key>type</key>
 				<integer>0</integer>
 			</dict>

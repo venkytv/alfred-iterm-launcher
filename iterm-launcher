@@ -3,10 +3,11 @@
 use strict;
 use Config::Tiny;
 
-my ($param, $action) = @ARGV;
-die "usage: $0 <parameter> <action>\n" if not $action;
+my ($action, $param) = @ARGV;
+die "usage: $0 <action> <parameter>\n" if not $param;
 
 my $conffile = $ENV{HOME} . '/.iterm-launcher.conf';
+my $defparam = '_';
 my $config = {};
 if (-f $conffile) {
     $config = Config::Tiny->read($conffile);
@@ -14,9 +15,10 @@ if (-f $conffile) {
 
 my @comm = ();
 
-if ($config->{$action}->{$param}) {
-    my $comm = $config->{$action}->{$param};
+if ($config->{$action}->{$param} || $config->{$action}->{_}) {
+    my $comm = $config->{$action}->{$param} || $config->{$action}->{_};
     $comm =~ s#^~/#$ENV{HOME}/#;
+    $comm =~ s/%s/$param/g;
     @comm = split(' ', $comm);
 } elsif ($action eq 'ssh') {
     push(@comm, '/usr/bin/ssh');

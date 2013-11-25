@@ -20,7 +20,7 @@ on run argv
   set launcherPath to (myHome & "bin:iterm-launcher")
   set launcher to POSIX path of launcherPath
   set launcherCommand to "exec " & quoted form of launcher ¬
-  	& " " & quoted form of sessionName & " " & quoted form of commandParam
+       & " " & quoted form of commandParam & " " & quoted form of sessionName
 
   tell application "iTerm"
     activate
