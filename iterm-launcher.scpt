@@ -3,8 +3,7 @@
 on run argv
   if count of argv < 3
     set myName to (POSIX path of (path to me) as string)
-    return "Usage: osascript " & myName & " <profile-name> <session-name>
-    <command-parameter> [<force-new-window>]"
+    return "Usage: osascript " & myName & " <profile-name> <session-name> <command-parameter> [<attach-session-name>]"
   end if
 
   set profileName to item 1 of argv
@@ -12,18 +11,9 @@ on run argv
   set commandParam to item 3 of argv
 
   try
-    set forceNewWindow to item 4 of argv
-    set forceNewWindow to forceNewWindow as number
-  on error errStr number errorNumber
-    if errorNumber is -1728 then
-      -- Fourth parameter not set
-      set forceNewWindow to 0
-    else if errorNumber is -1700 then
-      -- Fourth parameter not a number; count it as set
-      set forceNewWindow to 1
-    else
-      error errStr number errorNumber
-    end if
+    set attachSessionName to item 4 of argv
+  on error
+    set attachSessionName to ""
   end try
 
   set myHome to (path to current user folder as string)
@@ -37,6 +27,8 @@ on run argv
 
     set procRunning to false
     set myTermCount to count of terminal
+    set attachTerm to 0
+
     if myTermCount is 0 then
       -- No iTerm windows open
       set newTerm to (make new terminal)
@@ -58,10 +50,15 @@ on run argv
           repeat with j from 1 to myTabCount by 1
             set mySession to (session j)
             tell mySession
-              if name of mySession is sessionName then
+              set mySessionName to name of mySession
+              if mySessionName is sessionName then
                 select myTerm
                 select mySession
                 set procRunning to true
+              else if mySessionName is attachSessionName then
+                -- Found terminal window with session <attach-session-name>
+                -- Attach to this window if required to create a new tab
+                set attachTerm to i
               end if
             end tell -- mySession
           end repeat -- myTabCount
@@ -71,13 +68,10 @@ on run argv
 
     if procRunning is false then
       -- Terminal windows open, but process not running
-
-      -- If there is only one terminal window open, add a new tab
-      -- Else, launch a new terminal window
-      if myTermCount > 1 or forceNewWindow > 0 then
-        set myTerm to (make new terminal)
+      if attachTerm > 0
+        set myTerm to (terminal attachTerm)
       else
-        set myTerm to (terminal 1)
+        set myTerm to (make new terminal)
       end if
 
       tell myTerm
