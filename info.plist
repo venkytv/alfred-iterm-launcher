@@ -18,7 +18,16 @@
 			</dict>
 		</array>
 		<key>7718C5F6-2129-478A-AE92-0060DD230A96</key>
-		<array/>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>D7CB0FE8-85CA-463B-9461-B9720C2C28A3</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
 	</dict>
 	<key>createdby</key>
 	<string>Venky TV</string>
@@ -96,6 +105,31 @@
 			<key>version</key>
 			<integer>0</integer>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<true/>
+				<key>output</key>
+				<integer>0</integer>
+				<key>removeextension</key>
+				<false/>
+				<key>sticky</key>
+				<false/>
+				<key>text</key>
+				<string>{query}</string>
+				<key>title</key>
+				<string>Error launching iTerm window</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>D7CB0FE8-85CA-463B-9461-B9720C2C28A3</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
 	</array>
 	<key>readme</key>
 	<string>Icon from:
@@ -108,6 +142,11 @@ http://www.iconarchive.com/show/war-on-bad-design-2-icons-by-icondesigner.net/Wo
 			<real>10</real>
 		</dict>
 		<key>7718C5F6-2129-478A-AE92-0060DD230A96</key>
+		<dict>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+		<key>D7CB0FE8-85CA-463B-9461-B9720C2C28A3</key>
 		<dict>
 			<key>ypos</key>
 			<real>10</real>

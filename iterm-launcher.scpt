@@ -16,9 +16,10 @@ on run argv
     set attachSessionName to ""
   end try
 
-  set myHome to (path to current user folder as string)
-  set launcherPath to (myHome & "bin:iterm-launcher")
-  set launcher to POSIX path of launcherPath
+  tell application "Finder"
+    set myCwd to container of (path to me) as text
+  end tell
+  set launcher to POSIX path of (myCwd & "iterm-launcher")
   set launcherCommand to "exec " & quoted form of launcher ¬
        & " " & quoted form of commandParam & " " & quoted form of sessionName
 
@@ -84,4 +85,6 @@ on run argv
       end tell -- myTerm
     end if -- procRunning is false
   end tell -- "iTerm"
+
+  return
 end run
