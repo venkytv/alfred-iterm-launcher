@@ -30,18 +30,28 @@ while (<$fh>) {
 }
 close $fh;
 
+my $conf = {};
 if ($group and -f $conffile) {
-    my $conf = Config::Tiny->read($conffile);
+    $conf = Config::Tiny->read($conffile);
     if (exists $conf->{$group}) {
         $hosts{$_}++ foreach keys %{ $conf->{$group} };
     }
 }
+my $smart_hostname_matching = (exists $conf->{_}->{smart_hostname_matching}
+    ? $conf->{_}->{smart_hostname_matching} : 1);
 
 my @hosts;
 if (@ARGV) {
     my $hostpat = shift;
     $hosts{$hostpat}++;
-    @hosts = grep (/\Q$hostpat\E/i, keys %hosts);
+    my $re;
+    if ($smart_hostname_matching and not $hostpat =~ /\./) {
+        $re = join('[^\.]*', split('', $hostpat));
+        $re = qr/$re/i;
+    } else {
+         $re = qr/\Q$hostpat\E/i;
+     }
+    @hosts = grep (/$re/, keys %hosts);
 } else {
     @hosts = keys %hosts;
 }
